@@ -1,16 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class IGoapAgent : MonoBehaviour {
+public interface IGoapAgent {
+    GoapPlanner planner { get; set; }
+    NavMeshAgent navAgent { get; set; }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    List<GoapAction> GetPossibleActions();
+    List<GoapGoal> GetPossibleGoals();
+    bool IsActive();
 }

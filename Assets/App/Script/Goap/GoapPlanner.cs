@@ -4,8 +4,18 @@ using UnityEngine;
 
 public class GoapPlanner : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    public List<GoapAction> possibleGoapActions;
+    public List<GoapGoal> possibleGoapGoals;
+
+    GoapGoal currentGoal;
+    Queue<GoapAction> currentFSMQueue;
+
+    Dictionary<string, string> worldState;
+
+    bool shouldUpdate = false;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -13,4 +23,21 @@ public class GoapPlanner : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    List<GoapGoal> SearchValidGoals()
+    {
+        return null;
+    }
+
+    List<GoapAction> SearchForValidActions() {
+        return null;
+    }
+
+    void RunCurrentTree() {
+
+    }
+    
+    void RecalculateActionQueue() {
+
+    }
 }

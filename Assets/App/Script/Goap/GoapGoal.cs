@@ -2,10 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoapGoal : MonoBehaviour {
+public class GoapGoal : MonoBehaviour, IGoapGoal<string, string> {
 
-	// Use this for initialization
-	void Start () {
+    public Dictionary<string, string> GetGoalPrerequisites()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public bool Run()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	

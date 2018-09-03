@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IGoapAction : MonoBehaviour {
+public interface IGoapAction<T,W>{
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    float actionCost { get; }
+    IGoapAgent thisAgent { get; set; }
+    IGoapAction<string, string> nextAction { get; set; }
+
+    Dictionary<T, W> GetPreconditions();
+    Dictionary<T, W> GetEffects();
+
+    void Run();
+    void Exit();
 }

@@ -2,15 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IGoapGoal : MonoBehaviour {
+public interface IGoapGoal<T, W>{
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    Dictionary<T, W> GetGoalPrerequisites();
+    bool Run();	
 }
