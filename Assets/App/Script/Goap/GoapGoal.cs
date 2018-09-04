@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoapGoal : MonoBehaviour, IGoapGoal<string, string> {
+public class GoapGoal : MonoBehaviour, IGoapGoal {
 
     public Dictionary<string, string> GetGoalPrerequisites()
     {

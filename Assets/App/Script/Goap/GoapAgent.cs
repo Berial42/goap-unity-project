@@ -13,7 +13,7 @@ public class GoapAgent : MonoBehaviour, IGoapAgent {
         return planner.possibleGoapActions;
     }
 
-    public List<GoapGoal> GetPossibleGoals()
+    public Dictionary<string, object> GetPossibleGoals()
     {
         return planner.possibleGoapGoals;
     }
@@ -22,11 +22,15 @@ public class GoapAgent : MonoBehaviour, IGoapAgent {
     {
         return isActiveAndEnabled;
     }
+    private void Awake()
+    {
+        planner = GetComponent<GoapPlanner>();
+        navAgent = GetComponent<NavMeshAgent>();
+        
+    }
 
     // Use this for initialization
     void Start () {
-        planner = GetComponent<GoapPlanner>();
-        navAgent = GetComponent<NavMeshAgent>();
 	}
 	
 	// Update is called once per frame

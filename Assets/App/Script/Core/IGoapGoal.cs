@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IGoapGoal<T, W>{
+public interface IGoapGoal{
 
-    Dictionary<T, W> GetGoalPrerequisites();
+    Dictionary<string, string> GetGoalPrerequisites();
     bool Run();	
 }

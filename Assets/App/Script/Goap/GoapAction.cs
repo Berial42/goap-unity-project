@@ -2,10 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoapAction : MonoBehaviour, IGoapAction<string, string> {
+public class GoapAction : MonoBehaviour, IGoapAction {
 
+    public enum EActionState {
+        START,
+        RUNNING,
+        END,
+        ERROR
+    }
+    public GoapPlanner _parentplanner;
+    public GoapAgent _parentagent;
+    public EActionState actionState;
     public float thisActionCost = 1;
+    public Dictionary<string, object> preconditions;
+    public Dictionary<string, object> effects;
 
+    #region interface implementation
     public float actionCost
     {
         get
@@ -27,7 +39,7 @@ public class GoapAction : MonoBehaviour, IGoapAction<string, string> {
         }
     }
 
-    public IGoapAction<string, string> nextAction
+    public IGoapAction nextAction
     {
         get
         {
@@ -40,10 +52,6 @@ public class GoapAction : MonoBehaviour, IGoapAction<string, string> {
         }
     }
 
-    public void Exit()
-    {
-        nextAction.Run();
-    }
 
     public Dictionary<string, string> GetEffects()
     {
@@ -55,21 +63,8 @@ public class GoapAction : MonoBehaviour, IGoapAction<string, string> {
         throw new System.NotImplementedException();
     }
 
-    public void Run()
-    {
-        while (true)
-        {
-            //run action
-        }
-    }
+    public virtual void Run(GoapPlanner planner, GoapAgent agent) {}
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public void Exit() {}
+    #endregion
 }

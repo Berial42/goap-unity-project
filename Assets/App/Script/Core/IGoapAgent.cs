@@ -8,6 +8,6 @@ public interface IGoapAgent {
     NavMeshAgent navAgent { get; set; }
 
     List<GoapAction> GetPossibleActions();
-    List<GoapGoal> GetPossibleGoals();
+    Dictionary<string, object> GetPossibleGoals();
     bool IsActive();
 }
