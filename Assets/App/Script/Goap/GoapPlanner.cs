@@ -7,7 +7,7 @@ public class GoapPlanner : MonoBehaviour {
     public List<GoapAction> possibleGoapActions;
     public Dictionary<string, object> possibleGoapGoals;
 
-    GoapGoal currentGoal;
+    KeyValuePair<string, object> currentGoal;
     GoapAction currentAction;
     Queue<GoapAction> currentFSMQueue;
     GoapAgent agent;
@@ -28,13 +28,14 @@ public class GoapPlanner : MonoBehaviour {
         worldState.Add("objectToUse", null);
         worldState.Add("isHungry", true);
         currentFSMQueue = new Queue<GoapAction>();
-        possibleGoapGoals.Add("isHungry", true);
+        possibleGoapGoals.Add("isHungry", false);
         possibleGoapGoals.Add("isIdle", false);
         possibleGoapGoals.Add("hasEnemy", false);
     }
 
     // Use this for initialization
     void Start () {
+        currentGoal = new KeyValuePair<string, object>("isHungry", false);
         RecalculateActionQueue();
         RunCurrentPlan();
 	}

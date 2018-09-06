@@ -63,6 +63,36 @@ public class GoapAction : MonoBehaviour, IGoapAction {
         throw new System.NotImplementedException();
     }
 
+    public bool CheckEffects(Dictionary<string, object> requredEffects)
+    {
+        foreach (KeyValuePair<string, object> entry in effects)
+        {
+            if (requredEffects.ContainsKey(entry.Key))
+            {
+                if (requredEffects[entry.Key] != entry.Value)
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public bool CheckPreconditions()
+    {
+        foreach (KeyValuePair<string, object> entry in preconditions)
+        {
+            if (_parentplanner.worldState.ContainsKey(entry.Key))
+            {
+                if (_parentplanner.worldState[entry.Key] != entry.Value)
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     public virtual void Run(GoapPlanner planner, GoapAgent agent) {}
 
     public void Exit() {}

@@ -24,6 +24,13 @@ public class UseTarget : GoapAction {
         _parentagent = agent;
         _parentplanner = planner;
         Debug.Log("Use");
+        StartCoroutine(Use());
+    }
+
+    IEnumerator Use()
+    {
+        yield return new WaitForSeconds(3f);
+
         _parentplanner.worldState["objectUsed"] = true;
         Destroy((GameObject)_parentplanner.worldState["objectToUse"]);
         actionState = EActionState.END;

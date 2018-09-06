@@ -17,7 +17,7 @@ public class MoveTo : GoapAction {
     void Update () {
         if (actionState == EActionState.RUNNING)
         {
-            if (_parentagent.navAgent.remainingDistance <= 0.2f)
+            if (_parentagent.navAgent.remainingDistance <= 0.9f)
             {
                 actionState = EActionState.END;
                 _parentplanner.worldState["isNear"] = true;

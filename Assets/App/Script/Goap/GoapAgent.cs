@@ -7,6 +7,7 @@ public class GoapAgent : MonoBehaviour, IGoapAgent {
 
     public GoapPlanner planner { get; set; }
     public NavMeshAgent navAgent { get; set; }
+    public Animator animator;
 
     public List<GoapAction> GetPossibleActions()
     {
@@ -25,8 +26,7 @@ public class GoapAgent : MonoBehaviour, IGoapAgent {
     private void Awake()
     {
         planner = GetComponent<GoapPlanner>();
-        navAgent = GetComponent<NavMeshAgent>();
-        
+        navAgent = GetComponent<NavMeshAgent>();        
     }
 
     // Use this for initialization
@@ -35,6 +35,6 @@ public class GoapAgent : MonoBehaviour, IGoapAgent {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        animator.SetFloat("speed", navAgent.velocity.magnitude);
 	}
 }

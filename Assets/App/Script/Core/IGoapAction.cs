@@ -10,6 +10,8 @@ public interface IGoapAction{
 
     Dictionary<string, string> GetPreconditions();
     Dictionary<string, string> GetEffects();
+    bool CheckPreconditions();
+    bool CheckEffects(Dictionary<string, object> requredEffects);
 
     void Run(GoapPlanner planner, GoapAgent agent);
     void Exit();
